@@ -10,12 +10,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64"
+  # NOTE: Provider-specific boxes declared below
+  # NOTE: Provider-specific boxes declared below
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  #config.vm.box_url = "http://domain.com/path/to/above.box"
+  # NOTE: Provider-specific boxes declared below
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -59,8 +60,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   # View the documentation for the provider you're using for more
   # information on available options.
-  config.vm.provider "virtualbox" do |v|
+  config.vm.provider "virtualbox" do |v, override|
+    override.vm.box = "precise64_virtualbox"
+    override.vm.box_url = "http://files.vagrantup.com/precise64.box"
     v.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+  
+  config.vm.provider "vmware_fusion" do |v, override|
+    override.vm.box = "precise64_vmware"
+    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
+    v.vmx["memsize"] = "1024"
   end
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
