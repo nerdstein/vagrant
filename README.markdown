@@ -11,21 +11,21 @@ VirtualBox Vagrant Chef Drupal install
     `cd [vagrant project directory];
     vagrant up`
 5. Add this line to your /etc/hosts (or windows equivalent):
-    `33.33.33.10        drupal.vbox.local dev-site.vbox.local`
+    `33.33.33.10        drupal.dev.vm dev.vm`
 
 
-That's it, files in "public" are served here : [http://drupal.vbox.local/](http://drupal.vbox.local/)
+That's it, files in "public" are served here : [http://drupal.dev.vm/](http://drupal.dev.vm/)
 
 To connect to the console of you instance:
     `vagrant ssh`
 
 --------
 
-You can add `XDEBUG_PROFILE` to your GET parameter to generate an xdebug profile, e.g. [http://dev-site.vbox.local/?XDEBUG_PROFILE](http://dev-site.vbox.local/?XDEBUG_PROFILE)
+You can add `XDEBUG_PROFILE` to your GET parameter to generate an xdebug profile, e.g. [http://dev.vm/?XDEBUG_PROFILE](http://dev.vm/?XDEBUG_PROFILE)
 
-You can then investigate at [http://dev-site.vbox.local/webgrind/](http://dev-site.vbox.local/webgrind/)
+You can then investigate at [http://dev.vm/webgrind/](http://dev.vm/webgrind/)
 
-Phpmyadmin is available [http://dev-site.vbox.local/phpmyadmin/](http://dev-site.vbox.local/phpmyadmin/). User `myadmin`, Password `myadmin`
+Phpmyadmin is available [http://dev.vm/phpmyadmin/](http://dev.vm/phpmyadmin/). User `myadmin`, Password `myadmin`
 
 ## Other projects of interest
 
