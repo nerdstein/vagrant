@@ -116,7 +116,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # This role represents our default Drupal development stack.
     chef.add_role("drupal_lamp_varnish_dev")
-    # Install an example D7 install at drupal.vbox.local.
+    # Install an example D7 install at drupal.dev.vm.
     # chef.add_recipe('drupal::example')
     # This is basically the Vagrant role.
     chef.json.merge!({
@@ -125,7 +125,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           :server_root_password => "root" # TODO Hardcoded MySQL root password.
         },
         :hosts => {
-          :localhost_aliases => ["drupal.dev.vm", "dev.vm"]
+          :localhost_aliases => ["dev.vm"]
         }
       })
   end
