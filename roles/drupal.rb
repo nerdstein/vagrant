@@ -6,6 +6,7 @@ run_list(
   "recipe[php::module_gd]",
   "recipe[php::module_mysql]",
   "recipe[php::module_memcache]",
+  "recipe[php::module_apc]",
   "recipe[imagemagick]",
   "recipe[drupal::minimal]"
 )
