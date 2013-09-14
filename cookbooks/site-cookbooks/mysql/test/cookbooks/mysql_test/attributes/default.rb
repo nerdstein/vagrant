@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: mysql
-# Recipe:: default
+# Cookbook Name:: mysql_test
+# Attributes:: default
 #
-# Copyright 2008-2009, Opscode, Inc.
+# Copyright 2012, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +17,11 @@
 # limitations under the License.
 #
 
-include_recipe "mysql::client"
+# Must be specified for chef-solo for successful re-converge
+override['mysql']['server_root_password'] = 'e;br$il<vOp&Ceth!Hi.en>Roj7'
+
+default['mysql_test']['database'] = 'mysql_test'
+default['mysql_test']['username'] = 'test_user'
+default['mysql_test']['password'] = 'neshFiapog'
+
+override['mysql']['bind_address'] = 'localhost'

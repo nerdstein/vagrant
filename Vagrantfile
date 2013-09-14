@@ -122,7 +122,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.json.merge!({
         :www_root => '/vagrant/public',
         :mysql => {
-          :server_root_password => "root" # TODO Hardcoded MySQL root password.
+          :server_root_password => "root", # TODO Hardcoded MySQL root password.
+          :server_repl_password => "root",
+          :server_debian_password => "vagrant"
         },
         :hosts => {
           :localhost_aliases => ["dev.vm"]

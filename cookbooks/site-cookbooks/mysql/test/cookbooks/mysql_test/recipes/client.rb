@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: mysql
-# Resource:: database
+# Cookbook Name:: mysql_test
+# Recipe:: client
 #
-# Copyright:: 2008-2011, Opscode, Inc <legal@opscode.com>
+# Copyright 2012, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,11 +17,4 @@
 # limitations under the License.
 #
 
-actions :flush_tables_with_read_lock, :unflush_tables, :create_db, :query
-
-attribute :host, :kind_of => String
-attribute :username, :kind_of => String
-attribute :password, :kind_of => String
-attribute :database, :kind_of => String
-attribute :sql, :kind_of => String
-attribute :exists, :default => false
+include_recipe "yum::epel" if platform_family?('rhel')
