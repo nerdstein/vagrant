@@ -111,7 +111,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # end
   config.vm.provision :chef_solo do |chef|
     # This path will be expanded relative to the project directory
-    chef.cookbooks_path = ["cookbooks/site-cookbooks", "cookbooks/drupal-cookbooks"]
+    chef.cookbooks_path = ["cookbooks/site-cookbooks", "cookbooks/drupal-cookbooks", "cookbooks/bdd-cookbooks"]
     chef.roles_path = "roles"
 
     # This role represents our default Drupal development stack.
